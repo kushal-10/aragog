@@ -1,2 +1,2 @@
 # aragog
-SDF and URDF files for ARAGOG.
+SDF and Launch files for ARAGOG.
