@@ -1,0 +1,24 @@
+Documentation Points:
+
+Add axis, coordinate systems
+Eplain for closed loop linkages, how to split and add fixed link (add fixed link using model edior in gazebo)
+Create an sdf, urdf doesnot support closed loop linkages
+Name links, add limits for revolute, vel, torque, upp, lower
+Export and spawn in gazebo
+For gears set kinetic tag to true, seems to work for now
+
+04/05/21
+
+Default model moves when force applied on joints 2468
+Using kinematic tag the joints dont move, even when force is applied
+
+
+Problems
+1) At first the spawn was not successful, the robot would spawn and fall immediately.
+--> Noticed links were being copied, urdf does not understand close loop linkages.
+To simulate a closed loop linkage, split a common link into two parts and add a fixed joint between them
+Splitted the links on klann and leg to simulate, and added the fixed link using gazebo's model editor
+
+2) The links were not repeated while spawning, but the bot would again fall immediately after spawning.
+--> Set the kinematic tag to true for all gear linkages to hold the position of legs
+The robot spawns perfectly!!!!!!!!!
