@@ -9,16 +9,31 @@ For gears set kinetic tag to true, seems to work for now
 
 04/05/21
 
-Default model moves when force applied on joints 2468
-Using kinematic tag the joints dont move, even when force is applied
+Created base default_model.sdf, directly from SW, add fixed links and converted to sdf
+-- Default model moves when force applied on joints 2468
+
+Created model.sdf, added a box 10kg mass
+-- By applying force all 4 legs move, but phase is not maintained
+
+Created launch files 
+-- default_model.launch, model.launch
+
+Pushed all to main branch
+
+Created test branch
+-- To test next phases incl gear train and moveit
 
 
 Problems
-1) At first the spawn was not successful, the robot would spawn and fall immediately.
---> Noticed links were being copied, urdf does not understand close loop linkages.
+At first the spawn was not successful, the robot would spawn and fall immediately.
+-- Noticed links were being copied, urdf does not understand close loop linkages.
 To simulate a closed loop linkage, split a common link into two parts and add a fixed joint between them
 Splitted the links on klann and leg to simulate, and added the fixed link using gazebo's model editor
 
-2) The links were not repeated while spawning, but the bot would again fall immediately after spawning.
---> Set the kinematic tag to true for all gear linkages to hold the position of legs
-The robot spawns perfectly!!!!!!!!!
+The links were not repeated while spawning, but the bot would again fall immediately after spawning.
+-- Set the kinematic tag to true for all gear linkages to hold the position of legs
+The robot spawns perfectly.
+
+By setting the kinematic tag to true, the joints dont move in gazebo.
+-- To move the joints, launch in paused state, the default_model.sdf or model.sdf
+By using the right side panel for forces, position and velocity, given 0.2 to front and 0.4 to back legs to move them
