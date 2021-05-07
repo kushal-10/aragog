@@ -23,6 +23,13 @@ Pushed all to main branch
 Created test branch
 -- To test next phases incl gear train and moveit
 
+07/05
+Cannot convert SDF to URDF format. The main reason to convert to sdf was the support of closed loop linkages
+If reverted back to URDF then, most probably will lose the closed loop linkage
+
+Try to simulate the motion without close loop, move independently the 4 legs, removing the gear constraint
+
+Try to simulate the cube using SDF format, there has to be one, else the SDF is of no use
 
 Problems
 At first the spawn was not successful, the robot would spawn and fall immediately.
